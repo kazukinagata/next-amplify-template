@@ -1,6 +1,10 @@
 {
   "name": "next-amplify-template",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Boilerplate for Next.js and Amplify auth",
+  "repository": "https://github.com/kazukinagata/next-amplify-template",
+  "author": "kazukinagata <KNagata8@gmail.com>",
+  "license": "MIT",
   "private": false,
   "scripts": {
     "dev": "next dev",
