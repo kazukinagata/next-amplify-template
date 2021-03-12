@@ -9,9 +9,9 @@ const AuthContext = React.createContext<{
 }>({ loading: false, data: null })
 export const useAuthCtx = () => React.useContext(AuthContext)
 export const AmplifyAuthProvider: React.FC = ({ children }) => {
-  const { data: user, loading } = useAuth()
+  const { data, loading } = useAuth()
   return (
-    <AuthContext.Provider value={{ data: user, loading }}>
+    <AuthContext.Provider value={{ data, loading }}>
       {children}
     </AuthContext.Provider>
   )
