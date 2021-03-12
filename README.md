@@ -39,3 +39,30 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+
+## Utils
+
+### useAuthCtx
+
+```typescript
+  const {data, loading} = useAuthCtx()
+  // data: CognitoUser | null
+  // loading: boolean
+
+```
+
+### withSSRAuth
+
+```typescript
+  // pages/index.tsx
+
+  export const getServerSideProps = withSSRAuth(async (ctx) => {
+    return {
+      props: {}
+    }
+  })
+```
+
+## Lisence
+
+MIT
