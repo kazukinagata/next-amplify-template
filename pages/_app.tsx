@@ -13,6 +13,8 @@ import dynamic from 'next/dynamic'
 import 'nprogress/nprogress.css'
 import 'react-toastify/dist/ReactToastify.css'
 import '@aws-amplify/ui/dist/style.css'
+import { AmplifyAuthProvider } from '../src/contexts/auth'
+import { configureAmplify } from '../src/lib/amplify/awsConfig'
 
 const TopProgressBar = dynamic(
   () => {
@@ -20,6 +22,9 @@ const TopProgressBar = dynamic(
   },
   { ssr: false }
 )
+
+// NOTE: Move this to each pages component if you use getStaticProps
+configureAmplify()
 
 function MyApp({ Component, pageProps }: AppProps) {
   // Remove the server-side injected CSS.(https://material-ui.com/guides/server-rendering/)
@@ -39,27 +44,29 @@ function MyApp({ Component, pageProps }: AppProps) {
           content='minimum-scale=1, initial-scale=1, width=device-width'
         />
       </Head>
-      <StylesProvider injectFirst>
-        <MaterialUIThemeProvider theme={theme}>
-          <StyledComponentsThemeProvider theme={theme}>
-            <CssBaseline />
-            <TopProgressBar />
-            <ToastContainer
-              position='top-right'
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-            <Component {...pageProps} />
-            <ToastContainer />
-          </StyledComponentsThemeProvider>
-        </MaterialUIThemeProvider>
-      </StylesProvider>
+      <AmplifyAuthProvider>
+        <StylesProvider injectFirst>
+          <MaterialUIThemeProvider theme={theme}>
+            <StyledComponentsThemeProvider theme={theme}>
+              <CssBaseline />
+              <TopProgressBar />
+              <ToastContainer
+                position='top-right'
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
+              <Component {...pageProps} />
+              <ToastContainer />
+            </StyledComponentsThemeProvider>
+          </MaterialUIThemeProvider>
+        </StylesProvider>
+      </AmplifyAuthProvider>
     </>
   )
 }

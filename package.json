@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
+    "aws-amplify": "^3.3.23",
     "next": "10.0.8",
     "nprogress": "^0.2.0",
     "react": "17.0.1",
