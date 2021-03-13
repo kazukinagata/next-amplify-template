@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) x [Amplify](https://docs.amplify.aws/) 
 - [nprogress](https://github.com/rstacruz/nprogress)
 - Configured Amplify auth context, use `useAuthCtx` to retrieve current user
 - Convenience utilities such as `callGraphQL` and `checkAuth` to use with typescript
-- Simple withSSRAuth hoc for SSG
+- Simple withSSRAuth hoc for SSR
 
 
 ## Getting Started
